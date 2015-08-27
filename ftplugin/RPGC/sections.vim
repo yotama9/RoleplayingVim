@@ -19,7 +19,7 @@ function! s:NextSection(type, backwards)
     let lnum = line('.')
     let fl = foldlevel('.')
 
-    execute "silent normal! zM" . lnum . "gg i\e\e"
+    execute "silent normal! zM" . lnum . "ggzv"
 
 endfunction
 
