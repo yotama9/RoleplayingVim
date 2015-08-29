@@ -33,7 +33,8 @@ def die_maker():
     except ValueError: 
         print "More than one d, can't be handled yet"
         return False
-
+    if n.strip() == '':
+        n = '1'
     #Generate bonus
     if '-' in rest:
         dtype,bonus = rest.split('-')
