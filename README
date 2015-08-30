@@ -1,0 +1,9 @@
+This is a plugin (intended to be a collection of plugins) for vim for the purpose of roleplaying games.
+The plugin requires ``python`` and ``numpy`` (for dice rolling). 
+
+Features
+--
+
+* Document folding and fast movement
+* Dice rolling
+* Highlights of titles, subtitles, and dice
