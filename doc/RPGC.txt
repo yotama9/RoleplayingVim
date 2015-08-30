@@ -84,3 +84,6 @@ Plugin website and author
     This plugin is developed by Yotam Yosef Avital. You can contact me via
     yotama9@gmail.com. 
 
+    The github repository can be found at 
+    http://github.com/yotama9/RoleplayingVim
+

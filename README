@@ -7,3 +7,19 @@ Features
 * Document folding and fast movement
 * Dice rolling
 * Highlights of titles, subtitles, and dice
+
+Installing
+--
+
+This plugin should work with the pathogen method. To install, go to your .vim
+directory, and clone into the github repository. On linux this is done by
+
+    cd ~/.vim
+    git clone http://github.com/yotama9/RoleplayingVim
+
+For help files run 
+
+    :Helptags
+
+on vim after cloning into the repositry.
+This plugin is developped using vim7.4.52 and python 2.7.6 on linux mint machine. 
