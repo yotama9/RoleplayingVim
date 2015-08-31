@@ -25,9 +25,12 @@ def roll_die(die):
     print 'total: {}'.format(out+bonus)
     
 
-def die_maker():
+def die_maker(die=None):
     #A function to split die into number - die type - bonus
-    die = vim.eval('@"')
+    
+    #if passed die is none, it is currently yanked
+    if die == None:
+        die = vim.eval('@"')
     try: 
         n,rest = die.split('d')
     except ValueError: 
@@ -49,9 +52,40 @@ def die_maker():
     except ValueError:
         return False
 
+def get_die_parts_by_name():
+    die = vim.eval('@"')
+
+    #split bonus from main die
+    if '+' in die:
+        die,bonus_text = die.split('+')
+        bonus_text = '+{}'.format(bonus_text)
+        bonus = int(bonus_text)
+    elif '-' in die:
+        die,bonus = die.split('-')
+        bonus_text = '-{}'.format(bonus_text)
+        bonus = -int(bonus_text)
+
+    #search for the die definition in the file
+    for line in vim.current.buffer[:]:
+        if die in line and '=' in line:
+            die_info=line.split('=')[1]
+            n,dtype,trm = die_maker(die_info)
+
+    print "rolling {}d{}{}".format(n,dtype,bonus_text)
+    return [n,dtype,bonus]
+        
+
+        
+
 
 #Get die data, retrun False if die infor is faulty
-die_data = die_maker()
+
+#first try by names
+die_data = get_die_parts_by_name()
+#if this fails, try by die notation
+if not die_data:
+    die_data = die_maker()
+
 
 if die_data == False:
     print_error()

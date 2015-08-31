@@ -46,6 +46,28 @@ Document Structure                                                 *RPGCStructur
     d20+3
     1d8
 >
+
+--------------------------------------------------------------------------------
+Die Definition                                                         *DieDefine*
+    
+    If you place somewhere in the file a line of the format 
+
+>
+    <name>=<die>
+<
+    the die roller (|RPGCDice|) may use it for die definition. For example,
+    placing a line. 
+
+>
+   attack=1d20
+<
+
+    in your 'RPGC' file would allow you to roll 1d20 for attack by writing 
+>
+    attack+2
+<
+    Note that this would use your first die definition.
+
 --------------------------------------------------------------------------------
 Folding and Movement                                                 *RPGCFolding*
     
@@ -69,6 +91,7 @@ Dice Rolling                                                            *RPGCDic
     notation segment, pressing `<leader>d` will display a message with  message of
     the die results with details. Currently this support single die type and
     no spaces. See the end of |RPGCStructure| for die supported die notation.
+
 
 ================================================================================
 License                                                                      *GPL* 
