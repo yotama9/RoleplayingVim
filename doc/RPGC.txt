@@ -8,6 +8,7 @@ Contents                                                             *RPGCConten
     1.2 Folding and Movement....................... |RPGCFolding|
     1.3 Dice Rolling .............................. |RPGCDice|
     2. License .................................... |RPGCGPL|
+    3. Contact Information ........................ |RPGCContact|
 
 
 ================================================================================
@@ -20,30 +21,30 @@ Details                                                              *RPGCDetail
 --------------------------------------------------------------------------------
 Document Structure                                                 *RPGCStructure*
     
-    The character sheet is designed after Emacs's org-mode design. The plugin
-    assumes document devision into nested sections, the section level is
-    noted by asters. For example
-
+    The character sheet is designed after Emacs's org-mode design. To
+    recognize the document as a character sheet, the document name must end
+    with "RPGC". For example
+>
+    Sahr.RPGC
+<
+    The plugin assumes document devision into nested sections, the
+    section level is noted by asters. For example
 >
     * Abilities
     ** Strength (16)
         13 - character creation result
         2 - racial bonus
         1 - magic ring bonus
-
 <
-
     The highlight of lines is decided by the number of asterixes at the beginning
     of the lines.
 
     Die notation is also highlighted. Currently, this doesn't support blank
     spaces within die informations. Examples of recognized dice
-
 >
     2d6+1
     d20+3
     1d8
-<
 >
 --------------------------------------------------------------------------------
 Folding and Movement                                                 *RPGCFolding*
@@ -60,9 +61,8 @@ Folding and Movement                                                 *RPGCFoldin
    and `[[` moves to the previous one. Moving between the major section (lines
    starting a single asterix) is carried through `[]` and `][` and is coupled
    with document folding.
-    
  
--------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------
 Dice Rolling                                                            *RPGCDice*
 
     The plugin also offer a die rolling option. When the cursor is on a die
@@ -79,7 +79,7 @@ License                                                                      *GP
     http://www.gnu.org/licenses/gpl-3.0.en.html
 
 ================================================================================
-Plugin website and author
+Contact Information                                                  *RPGCContact*
     
     This plugin is developed by Yotam Yosef Avital. You can contact me via
     yotama9@gmail.com. 
