@@ -68,6 +68,28 @@ Die Definition                                                         *DieDefin
 <
     Note that this would use your first die definition.
 
+
+    The user can also define a die or a modifier by the section it is in, using
+    a dot separator. For Example, if the user adds the strength bonus to an
+    attack roll (1d20)
+>
+    * Str
+    ** Adjusters
+    ** Bonus
+    Value = 2
+<
+    The die would be called through 
+>
+    1d20+Str.Bonus.Value
+<
+    This would allow for multiple entries with the same name:
+>
+    * Str
+    Bonus = 2
+    * Dex
+    Bonus = 1
+<
+
 --------------------------------------------------------------------------------
 Folding and Movement                                                 *RPGCFolding*
     
