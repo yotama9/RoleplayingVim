@@ -1,0 +1,36 @@
+This is a sample character sheet, it doesn't comply to any real system, but it
+assumes simple mechanics:
+
+    Basic attack rolls are carried via 1d8
+
+    Damage rolls are carried via weapon. 
+
+    Each character has two abilities Str, Dex with value from 1 to 3
+
+    Characters can gain weapon points in either and apply them to attack
+
+
+* Abilities
+** Str
+    Value=1
+** Dex
+    Value=2
+
+* Weapons
+** Short sword
+Points=1
+*** Attack 
+    Attack+Abilities.Str.Value+Weapons.Short sword.Points
+*** Damage
+    1d6+Abilities.Str.Value
+** Short bow
+Points=2
+*** Attack 
+    Attack+Abilities.Dex.Value+Weapons.Short bow.Points
+*** Damage
+    1d4+Abilities.Dex.Value
+
+
+* Mechincs
+Attack=1d8
+

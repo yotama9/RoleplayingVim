@@ -29,7 +29,7 @@ def roll_dice(roll_data):
             d = int(d)
             for i in range (n):
                 print 'd{}: '.format(d),
-                res = randint(0,d+1)
+                res = randint(1,d+1)
                 total += res
                 print 'result={}, total={}'.format(res,total)
     print '-'*10
@@ -81,7 +81,7 @@ def die_from_text(die_text):
         first,die_text = die_text.split('.',1)
         n0 += 1
         pre = '*'*n0 
-        pattern = '^' + '\*'*n0
+        pattern = '^' + '\*'*n0 + '[^\*]'
 
         while lnum < len(vim.current.buffer):
             line = vim.current.buffer[lnum]
@@ -89,23 +89,21 @@ def die_from_text(die_text):
                 lnum += 1
                 break 
             lnum += 1
-        
 
         
     for line in vim.current.buffer[lnum:]:
-        print lnum
         if die_text in line and '=' in line:
             die_info=line.split('=')[1]
             #definition found, return it
             return die_info
-        if re.match(pattern,line):
+        if n0>0 and re.match(pattern,line):
             break
     
 
 
 
 def die_converter():
-    die = vim.eval('@"')
+    die = vim.current.line.strip()
 
     #split bonus from main die
     die_parts = get_bonus(die)
@@ -114,6 +112,7 @@ def die_converter():
     for key in ['add','sub']:
         for i in range (len(die_parts[key])):
             die_data = die_from_text(die_parts[key][i])
+            die_parts[key][i] = die_data
             try: #Checking if this is a simple numerical value
                 #yes add it
                 die_data = int(die_data)
@@ -123,10 +122,7 @@ def die_converter():
                     die_parts['mod'] -= die_data
             except ValueError:
                 #no, place it in the appropriate list
-                die_parts[key][i] = die_data
                 pass
-
-    print die_parts
     return die_parts
     
 
